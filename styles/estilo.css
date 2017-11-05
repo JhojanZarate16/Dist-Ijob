@@ -9,8 +9,8 @@
 }
 
 #b{
-	margin-left: 600px;
-	margin-top: -120px;
+	margin-left: 250px;
+	margin-top: -70px;
 }
 
 .c{
@@ -229,6 +229,26 @@ label{
 
 @media (min-width: 200px) and (max-width: 1200px)
 {
+	.p{
+		margin-left: 0px;
+		margin-top: 0px;
+	}
+	
+	.c{
+		margin-left: 0px;
+		margin-top: 0px;
+	}
+	
+	.c1{
+		margin-left: 0px;
+		margin-top: 0px;
+	}
+	
+	#b{
+		margin-left: 30px;
+		margin-top: -70px;
+	}
+		
 	.btn{
 		text-decoration:none;
 		position: relative;
