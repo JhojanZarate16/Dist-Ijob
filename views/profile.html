@@ -1,0 +1,193 @@
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Perfil</title>
+	<link rel="shortcut icon" href="../images/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="../styles/estilo.css">
+</head>
+<body class="bod">
+	<a href= "../index.html">
+		<img id="img" class="img" src="../images/banner_int1.f9c9cedb.png">
+	</a>
+	<br>
+	<br>
+	<form ng-submit="vm.updateUser()" role="form">
+		<div class="userInfo">
+			<div class="col-lg-3">
+				<img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+				<label class="userImage">
+					<img class="estado" ng-if="!vm.dataLoading" ngf-thumbnail="vm.user.image || vm.defaultImage ">  
+					<input class="est" type="file"  ngf-select ngf-pattern="'image/*'" ng-model="vm.user.image" ngf-accept="'image/*'" ngf-max-size="20MB" hidden ngf-min-height="100" ngf-resize="{width: 100, height: 100}">
+				</label>
+				<span id="p">Estado: <strong>{{vm.user.Status.nombre}}</strong></span>
+				<p id="pq" class="text-success" ng-if="vm.msg.success">{{vm.msg.success}}</p>
+				<p id="pq" class="text-danger" ng-if="vm.msg.error">{{vm.msg.error}}</p>
+			</div>
+			<div class="col-lg-9">
+				<fieldset>
+					<p class="p2">Datos Personales</p>
+					<span class="car" ng-show="vm.dataLoading">Cargando Información...</span>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-4 control-label">Correo Electrónico</label>
+						<div class="col-sm-5">
+							<input class="form-control" type="email" disabled placeholder="correo electrónico" ng-model="vm.user.correo">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-4 control-label">Nombres</label>
+						<div class="col-sm-5">
+							<input class="form-control" type="text" placeholder="Nombres" ng-model="vm.user.nombre">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-4 control-label">Apellidos</label>
+						<div class="col-sm-5">
+							<input class="form-control" type="text" placeholder="Apellidos" ng-model="vm.user.apellidos">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-4 control-label">Fecha De Nacimiento</label>
+						<div class="col-sm-5">
+							<input class="form-control" type="date" ng-model="vm.user.nacimiento">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-4 control-label">Genero</label>
+						<div class="col-sm-5">
+							<select class="form-control" name="genero" ng-model="vm.user.genero" ng-options="i.codigo as (i.nombre) for i in vm.Genero"></select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-4 control-label">Identificación</label>
+						<div class="col-sm-5">
+							<input class="form-control" type="text" placeholder="Identificación" ng-model="vm.user.cedula">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-4 control-label">Mi Nivel Educativo</label>
+						<div class="col-sm-5">
+							<select class="form-control" name="educativo" ng-model="vm.user.escolaridad" ng-options="i.codigo as (i.nombre) for i in vm.escolaridad"></select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-4 control-label">Descripción</label>
+						<div class="col-sm-5">
+							<textarea class="form-control" name="cursos" cols="23" ng-model="vm.user.descripcion"></textarea>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<p class="p2">Ubicación</p>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-4 control-label">Departamento</label>
+						<div class="col-sm-5">
+							<select class="form-control" ng-model="vm.user.departamento" ng-options="i.departamento as (i.departamento) for i in vm.ubicaciones"></select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-4 control-label">Ciudad</label>
+						<div class="col-sm-5">
+							<select class="form-control" ng-model="vm.user.ciudad" ng-options="i.municipio as (i.municipio) for i in vm.ubicaciones | filter:{ departamento: vm.user.departamento }"></select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-4 control-label">Dirección</label>
+						<div class="col-sm-5">
+							<input type="text" class="form-control" placeholder="Dirección de domicilio">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-4 control-label">Pueden Contarcarme Vía</label>
+						<div class="check">
+							<label class="checkbox-inline">
+								<input type="checkbox" id="inlineCheckbox1" value="option1"> Correo
+							</label>
+							<label class="checkbox-inline">
+								<input type="checkbox" id="inlineCheckbox2" value="option2"> Teléfono
+							</label>
+							<label class="checkbox-inline">
+								<input type="checkbox" id="inlineCheckbox3" value="option3"> WhatsApp
+							</label>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset ng-if="vm.user.canAddOcupacion">
+					<p class="p2">Ocupaciones</p>
+					<div class="col-sm-12" ng-if="vm.user.ocupaciones.length < 3">
+						<p>
+							<i>Es Posible Agregar Hasta 3 Ocupaciones.</i> <a class="btn2" ng-click="vm.addOcupacion()"> Agregar Ocupación</a>
+						</p>
+					</div>
+					<div ng-repeat="ocupacion in vm.user.ocupaciones">
+						<div class="form-group">
+							<div class="col-sm-4"> <strong>Tipo</strong></div>
+							<div class="col-sm-8">
+								<label class="radio-inline">
+									<input type="radio" name="tipoOcupacion_{{ocupacion._id}}"  ng-value="1" ng-model="ocupacion.tipo"> Principal
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="tipoOcupacion_{{ocupacion._id}}" ng-value="2" ng-model="ocupacion.tipo"> Secundaria
+								</label>
+							</div>
+						</div>
+						<div class="form-group">
+						</div>
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-4 control-label">Sector</label>
+							<div class="col-sm-5">
+								<select class="form-control" ng-model="ocupacion.idSector" ng-options="i._id as (i.nombre) for i in vm.sectores"></select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-4 control-label">Mi Trabajo Consiste En</label>
+							<div class="col-sm-5">
+								<select class="form-control" ng-model="ocupacion.idOcupacion" ng-options="i._id as (i.nombre) for i in vm.ocupaciones | filter:{_sector:ocupacion.idSector }"></select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-4 control-label">Años De Experiencia</label>
+							<div class="col-sm-5">
+								<input class="form-control" type="number" placeholder="años de experiencia" ng-model="ocupacion.experiencia">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-4 control-label">He Tomado Estos Cursos</label>
+							<div class="col-sm-5">
+								<textarea class="form-control" name="cursos" cols="23" ng-model="ocupacion.cursos"></textarea>
+								<input type="hidden" ng-model="ocupacion._id" />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-5"></div>
+							<div class="col-sm-5">
+								<a title="Eliminar Ocupación" class="text-danger pull-right" ng-click="vm.deleteOcupacion(ocupacion)"><i class="glyphicon glyphicon-trash"></i></a>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset ng-if="vm.user.canAddDispobilidad">
+					<p class="p2">Disponibilidad</p>
+					<div class="form-group">
+						<div class="col-sm-4">
+							<label>Estado De Disponilidad</label>
+						</div>
+						<div class="col-sm-4">
+							<input type="checkbox" ng-model="vm.user.disponible" />  
+							<span ng-if="vm.user.disponible">Activada</span>         
+							<span ng-if="!vm.user.disponible">Desactivada</span>         
+						</div>
+					</div>    
+				</fieldset>
+			</div>
+			<div class="col-lg-offset-5">
+				<input type="submit" value="Guardar" class="btn btn-success" ng-disabled="vm.dataLoading">
+				<a href="#/" class="btn btn-default" ng-disabled="vm.dataLoading">Cancelar</a>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

@@ -1,0 +1,78 @@
+  <html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Perfil</title>
+	<link rel="shortcut icon" href="../images/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="../styles/estilo.css">
+</head>
+<body>
+	<a href= "../index.html">
+		<img id="img" class="img" src="../images/banner_int4.18b8b141.png">
+	</a>
+	<br>
+	<br>
+	<div class="well">
+		<fieldset>
+			<p class="p1">Formulario De Registro</p>
+			<form name="form" ng-submit="vm.register()" role="form" class="formulario">
+				<div class="form-group" ng-class="{ 'has-error': form.nombre.$dirty && form.nombre.$error.required }">
+					<label for="correo" class="sr-only">Primer Nombre</label>
+					<input type="text" name="nombre" id="nombre" placeholder="Primer Nombre" class="form-control" ng-model="vm.user.nombre" required />
+					<span ng-show="form.nombre.$dirty && form.nombre.$error.required" class="help-block">Nombre es requerido</span>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error': form.apellidos.$dirty && form.apellidos.$error.required }">
+					<label for="correo" class="sr-only">Apellidos</label>
+					<input type="text" name="apellidos" id="apellidos" placeholder="Apellidos" class="form-control" ng-model="vm.user.apellidos" required />
+					<span ng-show="form.apellidos.$dirty && form.apellidos.$error.required" class="help-block">Apellido es requerido</span>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error': form.correo.$dirty && form.correo.$error.required }">
+					<label for="correo" class="sr-only">Correo</label>
+					<input type="text" name="correo" id="correo" placeholder="Correo" class="form-control" ng-model="vm.user.correo" required />
+					<span ng-show="form.correo.$dirty && form.correo.$error.required" class="help-block">Correo es requerido</span>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error': form.clave.$dirty && form.clave.$error.required }">
+					<label for="correo" class="sr-only">Clave</label>
+					<input type="password" name="clave" id="clave" placeholder="Clave" class="form-control" ng-model="vm.user.clave" required />
+					<span ng-show="form.clave.$dirty && form.clave.$error.required" class="help-block">Contraseña es requerido</span>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error': form.nacimiento.$dirty && form.nacimiento.$error.required }">
+					<label for="correo" class="sr-only">Fecha Nacimiento</label>
+					<input type="text" name="nacimiento" id="nacimiento" placeholder="Fecha De Nacimiento" class="form-control" ng-model="vm.user.nacimiento" required />
+					<span ng-show="form.nacimiento.$dirty && form.nacimiento.$error.required" class="help-block">Fecha Nacimiento es Requerida</span>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error': form.genero.$dirty && form.genero.$error.required }">
+					<label for="correo" id="clas">Genero</label>
+					<select name="genero" id="genero" class="form-control" ng-model="vm.user.genero">
+						<option ng-repeat="option in vm.Genero" value="{{option.codigo}}">{{option.nombre}}</option>
+					</select>
+					<span ng-show="form.genero.$dirty && form.genero.$error.required" class="help-block">Genero es requerido</span>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error': form.rol.$dirty && form.rol.$error.required }">
+					<label for="correo" id="clas">Rol</label>
+					<select name="rol" id="rol" class="form-control" ng-model="vm.user.rol">
+						<option ng-repeat="option in vm.Roles" value="{{option.codigo}}">{{option.nombre}}</option>
+					</select>
+					<span ng-show="form.rol.$dirty && form.rol.$error.required" class="help-block">Rol es Requerido</span>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error': form.metodoRegistro.$dirty && form.metodoRegistro.$error.required }">
+					<label for="correo" id="clas">Metodo de Registro</label>
+					<select name="metodoRegistro" id="metodoRegistro" class="form-control" ng-model="vm.user.metodoRegistro">
+						<option ng-repeat="option in vm.MetodoRegistro" value="{{option.codigo}}">{{option.nombre}}</option>
+					</select>
+					<span ng-show="form.metodoRegistro.$dirty && form.metodoRegistro.$error.required" class="help-block">Metodo De Registro Es Requerido.</span>
+				</div>
+				<div class="form-actions" align="center">
+					<button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-default">Registrar</button>
+					<img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+					<a href="#!/login" class="btn btn-default">Cancelar</a>
+				</div>
+			</form>
+			<div class="{{vm.msg.className}}">{{vm.msg.content}}</div>
+		</fieldset>  
+	</div>
+</body>
+</html>

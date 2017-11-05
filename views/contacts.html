@@ -1,0 +1,163 @@
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Busqueda</title>
+	<link rel="shortcut icon" href="../images/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="../styles/estilo.css">
+	<style type="text/css">
+		table {
+			border-collapse:separate;
+			border-spacing: 15px;
+		}
+		
+		#nav{
+			top:132px;
+			padding-left:200px;
+			position:absolute;
+		}
+		
+		.color{
+			padding: 15px;
+			border: 2px solid #FF8000;
+			border-radius: 100px;
+			background: linear-gradient(0deg, #F7BE81, #FFFFFF);
+		}
+	</style>
+</head>
+<body>	
+	<a href= "../index.html">
+		<img id="img" class="img" src="../images/banner_int3.5e86ff97.png">
+	</a>
+	<br>
+	<br>
+	<div>
+		<p class="p1">Contactos</p>
+		<br>
+  		<ul class="nav nav-tabs" role="tablist" id="myTabs">
+		    <li role="presentation" class="active">
+		    	<a class="contac" href="#home" aria-controls="home" role="tab" data-toggle="tab">Solicitudes Enviadas ({{vm.contacts.pendingForAnswer.length}})</a>
+		    </li>
+		    <li role="presentation">
+		     	<a class="contac" href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Solicitudes Recibidas ({{vm.contacts.pendingToAnswer.length}})</a>
+		    </li>
+		    <li role="presentation">
+		      	<a class="contac" href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Lista de Contactos ({{vm.contacts.active.length}})</a>
+		    </li>
+		    <li role="presentation">
+		      	<a class="contac" href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Nueva Solicitud</a>
+		    </li>
+		</ul>
+		<div class="tab-content">
+		    <div role="tabpanel" class="tab-pane active" id="home">
+		    <br>
+		    <br>
+		    	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		        	<div class="panel panel-default" ng-repeat="enviada in vm.contacts.pendingForAnswer">
+		        		<div class="panel-heading" role="tab" id="headingOne">
+		            		<h4 class="panel-title">
+		              			<a class="contac" role="button" ng-if="enviada._usuarioRecibe" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+		                		{{enviada._usuarioRecibe.nombre}} {{enviada._usuarioRecibe.apellidos}}
+		              			</a>
+		              			<span class="p3" ng-if="!enviada._usuarioRecibe" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+				                	Nombre De Usuario Desconocido
+		              			</span>              
+		              			<i class="pull-right">Enviado El: {{enviada.fecha}}</i>
+		            		</h4>
+			          	</div>
+					    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+					    	<div class="panel-body">{{enviada.observaciones}}</div>
+			          	</div>
+			        </div>
+			    </div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="profile">
+				<br>
+				<br>
+			    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				  	<div class="panel panel-default" ng-repeat="enviada in vm.contacts.active">
+			      		<div class="panel-heading" role="tab" id="headingOne">
+			        	    <h4 class="panel-title">
+			            	  	<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+			               		{{enviada._usuarioRecibe.nombre}} {{enviada._usuarioRecibe.apellidos}}
+			            		</a>
+			            		<i class="pull-right">Enviado En: {{enviada._usuarioRecibe.creado}}</i>
+			            	</h4>
+			          	</div>
+			          	<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+			            	<div class="panel-body">
+					            <div class="col-lg-6">
+			                		<span>{{enviada._usuarioRecibe.nombre}} {{enviada._usuarioRecibe.apellidos}}</span>
+					                <br>
+					                <span>{{enviada._usuarioRecibe.correo}}</span>
+					                <br>
+					                <p>{{enviada._usuarioRecibe.descripcion}}</p>
+					            </div>
+					        </div>
+			          	</div>
+			        </div>
+			    </div>
+		    </div>
+		    <br>
+			<div role="tabpanel" class="tab-pane" id="messages">
+			    <form class="form-horizontal" ng-submit="vm.doRequest()">
+			        <p class="p1">Nueva Solicitud</p>
+			        <br>
+			        <div class="form-group">
+			          	<label class="p">Usuario Solicitante:</label>
+			          	<input class="c" type="text" placeholder="usuario solicita" ng-disabled="vm.idUser" ng-model="vm.idUser">
+			        </div>
+			        <div class="form-group">
+			          	<label class="p">Usuario Destinatario:</label>
+			          	<input class="c1" type="text" placeholder="       Usuario Solicitante" ng-model="vm.idUserTarget">
+			        </div>
+			        <div id="b" class="form-group">
+				          <input type="submit" value="Aceptar" class="btn btn-info">
+			        </div>
+			    </form>
+			     <div>{{vm.requestResult}}</div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="settings">
+				<br>
+				<a class="p3">Recibidas</a>
+			    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+			       	<div class="panel panel-default" ng-repeat="enviada in vm.contacts.pendingToAnswer">
+			       		<div class="panel-heading" role="tab" id="headingOne">
+			       	    	<h4 class="panel-title">
+			           			<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+			               		{{enviada._usuarioRecibe.nombre}} {{enviada._usuarioRecibe.apellidos}}
+			           			</a>
+			           			<i class="pull-right">Enviado En: {{enviada._usuarioRecibe.creado}}</i>
+			           		</h4>
+			       		</div>
+			       		<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+				            <div class="panel-body">
+					            <div class="col-lg-6">
+				                	<span>{{enviada._usuarioRecibe.nombre}} {{enviada._usuarioRecibe.apellidos}}</span>
+				                	<br>
+				                	<span>{{enviada._usuarioRecibe.correo}}</span>
+				                	<br>
+				                	<p>{{enviada._usuarioRecibe.descripcion}}</p>
+				              	</div>
+				            </div>
+			       		</div>
+			       	</div>
+			    </div>
+			    <div class="alert alert-{{vm.putResult.status}}" role="alert">{{vm.putResult.message}}</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function () {
+		    $('#accordion').collapse();
+	    	$('#accordion a').click(function (e) {e.preventDefault()});
+	    	$('#myTabs a').click(function (e) {e.preventDefault()
+	      	$(this).tab('show')
+	    	})
+	  	});
+	</script>
+</body>
+</html>
