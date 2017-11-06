@@ -9,20 +9,28 @@
 	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="../styles/estilo.css">
 </head>
-<form ng-submit="vm.remember()" role="form" class="form-horizontal" >
-    <div class="well">
-        <br>
-		<p class="p1" align="center">Por favor Digite La Cuenta De Correo<br>Con La Que Realizó El Registro En IJob</p>
-    <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
-		<br>
-        <input type="email" ng-disabled="vm.sended" required ng-model="vm.email" class="form-control" placeholder="Correo Electrónico">
-        <br>
-        <div align="center">
-			<input type="submit" ng-disabled="vm.sended" class="btn btn-success" value="Confirmar">
-			<input type="button" class="btn btn-default" value="Cancelar" ng-click="vm.cancel()">
-			<span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">El Email Es Obligatorio</span>
+<body>	
+	<a href= "../index.html">
+		<img id="img" src="../images/banner_int2.1196e489.png">
+	</a>
+	<br>
+	<br>
+	<form ng-submit="vm.remember()" role="form" class="form-horizontal" >
+	    <div class="well">
+    	    <br>
+			<p class="p1" align="center">Por favor Digite La Cuenta De Correo<br>Con La Que Realizó El Registro En IJob</p>
+    		<div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+				<br>
+        		<input type="email" ng-disabled="vm.sended" required ng-model="vm.email" class="form-control" placeholder="Correo Electrónico">
+        		<br>
+		        <div align="center">
+					<input type="submit" ng-disabled="vm.sended" class="btn btn-success" value="Confirmar">
+					<input type="button" class="btn btn-default" value="Cancelar" ng-click="vm.cancel()">
+					<span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">El Email Es Obligatorio</span>
+				</div>
+			</div>
 		</div>
-	</div>
-</form>
-
-<div class="{{vm.msg.className}}">{{vm.msg.content}}</div>
+	</form>
+	<div class="{{vm.msg.className}}">{{vm.msg.content}}</div>
+</body>
+</html>
