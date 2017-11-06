@@ -198,6 +198,7 @@ label{
 	color: #000000;
 	padding:5px;
 	border-radius:20px;
+	margin-left:300px;
 }
 
 .btn2:hover{
@@ -227,6 +228,24 @@ label{
 	}
 }
 
+@media (min-width: 200px) and (max-width: 760px)
+{
+	.dropright-toggle{
+		margin-top:-30px;
+		margin-right:80px;
+		margin-bottom:-10px;
+	}
+}
+
+@media (min-width: 200px) and (max-width: 1199px)
+{
+	.col-lg-offset-5{
+		margin-left:100px;
+	}
+	
+	
+}
+
 @media (min-width: 200px) and (max-width: 1200px)
 {
 	.p{
@@ -253,6 +272,10 @@ label{
 		text-decoration:none;
 		position: relative;
 	}
+	
+	.btn2{
+		margin-left: 0px;
+	}
 
 	#img{
 		width:100%;
@@ -264,6 +287,10 @@ label{
 
 	.img-thumbnail{
 		margin-left: 0px;
+	}
+
+	.check{
+		margin-left:0px;
 	}
 }
 
