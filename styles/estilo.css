@@ -230,6 +230,12 @@ label{
 
 @media (min-width: 200px) and (max-width: 760px)
 {
+	.navbar-text{
+		margin-top:-30px;
+		margin-right:80px;
+		margin-bottom:-10px;
+	}
+	
 	.dropright-toggle{
 		margin-top:-30px;
 		margin-right:80px;
@@ -240,7 +246,7 @@ label{
 @media (min-width: 200px) and (max-width: 1199px)
 {
 	.col-lg-offset-5{
-		margin-left:100px;
+		margin-left:50px;
 	}
 	
 	
@@ -274,7 +280,7 @@ label{
 	}
 	
 	.btn2{
-		margin-left: 0px;
+		margin-left: 30px;
 	}
 
 	#img{
@@ -290,7 +296,7 @@ label{
 	}
 
 	.check{
-		margin-left:0px;
+		margin-left:30px;
 	}
 }
 
