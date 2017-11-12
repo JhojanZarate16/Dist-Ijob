@@ -26,6 +26,16 @@
 			border-radius: 100px;
 			background: linear-gradient(0deg, #F7BE81, #FFFFFF);
 		}
+		
+		.solicitud{
+			position:absolute;
+			margin-top:300px;
+			margin-left:120px;
+		}
+		
+		.fsRequest{
+			color: #ff8000;
+		}
 	</style>
 </head>
 <body>
@@ -149,6 +159,11 @@
 		<div class="well">
 			<i class="pull-right">{{job.since}}</i>
 			<div class="row">
+				<div class="solicitud">
+					<div class="">
+						<a class="fsRequest" ng-disabled="job.isDoingRequest"  ng-click="vm.doRequest(job)" >{{job.requestText}}</a>
+					</div>
+				</div>
 				<div class="col-lg-4">
 					<img src="{{job.srcImage}}" class="img-thumbnail" width="240" />
 				</div>
