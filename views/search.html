@@ -27,14 +27,15 @@
 			background: linear-gradient(0deg, #F7BE81, #FFFFFF);
 		}
 		
-		.solicitud{
-			position:absolute;
-			margin-top:300px;
-			margin-left:120px;
-		}
-		
 		.fsRequest{
+			border: 1px solid;
+			border-radius: 20px 0px 20px 0px;
+			padding: 8px;
 			color: #ff8000;
+		}
+
+		.fsRequest:hover{
+			color: black;
 		}
 	</style>
 </head>
@@ -159,11 +160,6 @@
 		<div class="well">
 			<i class="pull-right">{{job.since}}</i>
 			<div class="row">
-				<div class="solicitud">
-					<div class="">
-						<a class="fsRequest" ng-disabled="job.isDoingRequest"  ng-click="vm.doRequest(job)" >{{job.requestText}}</a>
-					</div>
-				</div>
 				<div class="col-lg-4">
 					<img src="{{job.srcImage}}" class="img-thumbnail" width="240" />
 				</div>
@@ -265,6 +261,16 @@
 							</div>
 						</div>
 					</div>
+					<br>
+					<div class="row">
+						<div class="col-lg-4">
+							<strong></strong>
+						</div>
+						<div class="col-lg-8">
+							<a class="fsRequest" ng-disabled="job.isDoingRequest"  ng-click="vm.doRequest(job)" >{{job.requestText}}</a>
+						</div>
+					</div>
+					<br>
 				</div>
 			</div>
 			<i class="pull-right">Creado En {{job.creadoEn}}</i>
