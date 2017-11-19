@@ -177,17 +177,22 @@
 		</div>
 	</div>
 	<div class="jobs-container">
-		<div class="row text-center">
-			<span class="text-danger" ng-if="vm.searchResult">{{vm.searchResult}}</span>
-			<p class="p1"><i><span ng-if="vm.jobs.length > 0">Usuarios Top{{vm.jobs.length}}</span></i></p>
-		</div>
 		<div class="job-item" ng-repeat="job in vm.jobs">
 			<div class="well">
+				<i class="pull-right">{{job.since}}</i>
 				<div class="row">
 					<div class="col-lg-4">
 						<img src="{{job.srcImage}}" class="img-thumbnail" width="240" />
 					</div>
 					<div class="col-lg-6">
+						<div class="row">
+							<div class="col-lg-4">
+								<strong>Apellidos</strong>
+							</div>
+							<div class="col-lg-8">
+								{{job.apellidos}}
+							</div>
+						</div>
 						<div class="row">
 							<div class="col-lg-4">
 								<strong>Nombres</strong>
@@ -198,10 +203,19 @@
 						</div>
 						<div class="row">
 							<div class="col-lg-4">
-								<strong>Apellidos</strong>
+								<strong>Género</strong>
 							</div>
 							<div class="col-lg-8">
-								{{job.apellidos}}
+								<span ng-if="job.genero === 1">Masculino</span>
+								<span ng-if="job.genero === 2">Femenino</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-4">
+								<strong>Descripción</strong>
+							</div>
+							<div class="col-lg-8">
+								{{job.descripcion}}
 							</div>
 						</div>
 						<hr>
@@ -220,6 +234,24 @@
 							<div class="col-lg-8">
 								<span ng-if="job.calificaciones">{{job.calificaciones}}</span>
 								<span ng-if="!job.calificaciones">0</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-4">
+								<strong>Prestador</strong>
+							</div>
+							<div class="col-lg-8">
+								<span ng-if="job.calificacionPrestador">{{job.calificacionPrestador}}</span>
+								<span ng-if="!job.calificacionPrestador">0</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-4">
+							  <strong>Certificado</strong>
+							</div>
+							<div class="col-lg-8">
+							  <span ng-if="job.estaCertificado">Sí</span>
+							  <span ng-if="!job.estaCertificado">No</span>
 							</div>
 						</div>
 						<hr>
@@ -262,6 +294,7 @@
 						<br>
 					</div>
 				</div>
+				<i class="pull-right">Creado En {{job.creadoEn}}</i>
 			</div>
 			<hr>
 		</div>
