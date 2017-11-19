@@ -1,3 +1,24 @@
+.ti{
+	color: #ff8000;
+}
+
+.col-lg-11{
+	margin-left: 40px;
+	margin-top: 0px;
+}
+
+.na{
+	margin-left:9px;
+	margin-top:-21px;
+	color: #ffffff;
+}
+
+.ns{
+	margin-left:8px;
+	margin-top:-20px;
+	color: #ffffff;
+}
+
 .col-lg-12{
 	margin-left: 250px;
 	margin-top: -70px;
@@ -10,6 +31,7 @@
 .nu{
 	margin-left:9px;
 	margin-top:-21px;
+	color: #ffffff;
 }
 
 dt{
@@ -297,7 +319,6 @@ label{
 	padding:5px;
 	border-radius:20px 0px 20px 0px;
 }
-
 
 @media (min-width: 200px) and (max-width: 350px)
 {
