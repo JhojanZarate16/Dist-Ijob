@@ -1,3 +1,35 @@
+.col-lg-12{
+	margin-left: 250px;
+	margin-top: -70px;
+}
+
+.col-lg-6{
+	margin-left: 20px;
+}
+
+.nu{
+	margin-left:9px;
+	margin-top:-21px;
+}
+
+dt{
+	color: #ff8000;
+}
+
+#collapseOne{
+	color: black;
+	background-color: ;
+	border: 1px solid #A1A1A1;
+}
+
+.panel-heading{
+	border: 2px solid;
+}
+
+.panel-title{
+	color:#ff8000;
+}
+
 .pull-right{
 	margin-top:-8px;
 }
@@ -42,6 +74,30 @@
 #clas{
 	color: #BDBDBD;
 	text-shadow: 1px 1px #fff;
+	font-size:20px;
+}
+
+.img1{
+	position:absolute;
+	left: 500px;
+	margin-top: 15px;
+}
+
+#clas2{
+	color: #ff8000;
+	text-shadow: 1px 1px #fff;
+	font-family: times new roman;
+	font-size: 20px; 
+}
+
+#pr{
+	margin-left:430px;
+}
+
+#radio{
+	position: absolute;
+	margin-top:10px;
+	left: 760px;
 }
 
 .col-sm-12{
@@ -208,6 +264,40 @@ label{
 	padding:5px;
 	border-radius:20px;
 }
+
+.btn3{
+	border: 1px solid #FF8000;
+	background: linear-gradient(180deg, #FF8000, #FFFFFF );
+	color: #000000;
+	padding:5px;
+	border-radius:20px 0px 20px 0px;
+}
+
+.btn3:hover{
+	border: 1px solid #FFFFFF;
+	background: linear-gradient(0deg, #FFFFFF, #FF8000 );
+	color: #FFFFFF;
+	padding:5px;
+	border-radius:20px 0px 20px 0px;
+}
+
+.btn4{
+	margin-left:50px;
+	border: 1px solid #FF8000;
+	background: linear-gradient(180deg, #FF8000, #FFFFFF );
+	color: #000000;
+	padding:5px;
+	border-radius:20px 0px 20px 0px;
+}
+
+.btn4:hover{
+	border: 1px solid #FFFFFF;
+	background: linear-gradient(0deg, #FFFFFF, #FF8000 );
+	color: #FFFFFF;
+	padding:5px;
+	border-radius:20px 0px 20px 0px;
+}
+
 
 @media (min-width: 200px) and (max-width: 350px)
 {

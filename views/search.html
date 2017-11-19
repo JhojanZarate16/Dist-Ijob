@@ -59,20 +59,19 @@
 	<div ng-if="vm.geografica">
   		<div class="form-group">
     		<label for="inputEmail3" class="col-sm-4 control-label">Categoría</label>
-		    <div class="col-sm-8">
+		    <div class="col-sm-7">
       			<select class="form-control" ng-model="vm.search.idSector" ng-options="i._id as (i.nombre) for i in vm.sectores">
 		     	</select>
     		</div>
   		</div>
 		<div class="form-group">
 	    	<label for="inputEmail3" class="col-sm-4 control-label">Ocupación</label>
-	    	<div class="col-sm-8">
+	    	<div class="col-sm-7">
 	    		<select class="form-control" ng-model="vm.search.geoOcupacion" ng-options="i._id as (i.nombre) for i in vm.ocupaciones | filter:{_sector:vm.search.idSector }">
 	      		</select>
-	      		<p>
-	        		<input type="button" value="Aceptar" class="btn btn-success" ng-disabled="vm.dataLoading" ng-click="vm.geoSearch()">
-	      		</p>
-		    	<div>{{vm.geoSearchResult}}</div>
+	      		<br>
+	      		<input type="button" value="Aceptar" class="btn4" ng-disabled="vm.dataLoading" ng-click="vm.geoSearch()">
+	      		<div>{{vm.geoSearchResult}}</div>
 	    	</div>
 	  	</div>
   		<hr>
@@ -278,52 +277,39 @@
 		<hr>
 	</div>
 </div>
+<button class="btn3" ng-click="vm.VisibleMap = !vm.VisibleMap">
+ 	<span ng-if="!vm.VisibleMap">Mostrar Mapa</span>
+ 	<span ng-if="vm.VisibleMap">Ocultar Mapa</span>
+</button>
+<div id="map" ng-if="vm.VisibleMap"></div>
 <nav aria-label="Page navigation" ng-if="vm.jobs.length > 0">
     <ul class="pagination">
       	<li>
-      		<a class="fsRequest" ng-click="vm.currentPage = vm.currentPage-1" aria-label="Previous">
+        	<a class="fsRequest" ng-click="vm.currentPage = vm.currentPage-1" aria-label="Previous">
           		<span aria-hidden="true">&laquo;</span>
         	</a>
       	</li>
-      	<li  ng-class="{active: vm.currentPage == 1}">
-      		<a class="fsRequest"  ng-click="vm.changePage(1)">1</a>
-      	</li>
-	    <li  ng-class="{active: vm.currentPage == 2}">
-	    	<a class="fsRequest" ng-click="vm.changePage(2)">2</a>
-	    </li>
-    	<li  ng-class="{active: vm.currentPage == 3}">
-    		<a class="fsRequest" ng-click="vm.changePage(3)">3</a>
-    	</li>
-      	<li  ng-class="{active: vm.currentPage == 4}">
-      		<a class="fsRequest" ng-click="vm.changePage(4)">4</a>
-      	</li>
-      	<li  ng-class="{active: vm.currentPage == 5}">
-      		<a class="fsRequest" ng-click="vm.changePage(5)">5</a>
-      	</li>
-      	<li  ng-class="{active: vm.currentPage == 6}">
-      		<a class="fsRequest"  ng-click="vm.changePage(6)">6</a>
-      	</li>
-      	<li  ng-class="{active: vm.currentPage == 7}">
-      		<a class="fsRequest" ng-click="vm.changePage(7)">7</a>
-      	</li>
-      	<li  ng-class="{active: vm.currentPage == 8}">
-      		<a class="fsRequest" ng-click="vm.changePage(8)">8</a>
-      	</li>
-      	<li  ng-class="{active: vm.currentPage == 9}">
-      		<a class="fsRequest" ng-click="vm.changePage(9)">9</a>
-      	</li>
-      	<li  ng-class="{active: vm.currentPage == 10}">
-      		<a class="fsRequest" ng-click="vm.changePage(10)">10</a>
-      	</li>
+      	<li  ng-class="{active: vm.currentPage == 1}"><a class="fsRequest"  ng-click="vm.changePage(1)">1</a></li>
+      	<li  ng-class="{active: vm.currentPage == 2}"><a class="fsRequest" ng-click="vm.changePage(2)">2</a></li>
+	    <li  ng-class="{active: vm.currentPage == 3}"><a class="fsRequest" ng-click="vm.changePage(3)">3</a></li>
+    	<li  ng-class="{active: vm.currentPage == 4}"><a class="fsRequest" ng-click="vm.changePage(4)">4</a></li>
+      	<li  ng-class="{active: vm.currentPage == 5}"><a class="fsRequest" ng-click="vm.changePage(5)">5</a></li>
+      	<li  ng-class="{active: vm.currentPage == 6}"><a class="fsRequest"  ng-click="vm.changePage(6)">6</a></li>
+      	<li  ng-class="{active: vm.currentPage == 7}"><a class="fsRequest" ng-click="vm.changePage(7)">7</a></li>
+      	<li  ng-class="{active: vm.currentPage == 8}"><a class="fsRequest" ng-click="vm.changePage(8)">8</a></li>
+      	<li  ng-class="{active: vm.currentPage == 9}"><a class="fsRequest" ng-click="vm.changePage(9)">9</a></li>
+      	<li  ng-class="{active: vm.currentPage == 10}"><a class="fsRequest" ng-click="vm.changePage(10)">10</a></li>
       	<li>
-       		<a class="fsRequest" ng-click="vm.currentPage = vm.currentPage-1" aria-label="Next">
-         		<span aria-hidden="true">&raquo;</span>
+        	<a class="fsRequest" ng-click="vm.currentPage = vm.currentPage-1" aria-label="Next">
+          		<span aria-hidden="true">&raquo;</span>
         	</a>
       	</li>
     </ul>
 </nav>
 <script>
-	$('a.fsRequest').on('click', function (e) {e.preventDefault()})
+	$('a.fsRequest').on('click', function (e) {
+    	e.preventDefault()
+  	})
 </script>
 </body>
 </html>

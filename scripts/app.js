@@ -26,7 +26,7 @@ angular
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        controllerAs: 'main'
+        controllerAs: 'vm'
       })
       .when('/register', {
         templateUrl: 'views/register.html',
@@ -56,6 +56,11 @@ angular
       .when('/contacts', {
         templateUrl: 'views/contacts.html',
         controller: 'ContactsCtrl',
+        controllerAs: 'vm'
+      })
+      .when('/qualification', {
+        templateUrl: 'views/qualification.html',
+        controller: 'QualificationCtrl',
         controllerAs: 'vm'
       })
       .otherwise({

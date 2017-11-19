@@ -2,16 +2,39 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Inicio</title>
-	<link rel="shortcut icon" href="images/favicon.ico"/>
-	<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans'>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="../styles/index.css">
+	<link rel="shortcut icon" href="../images/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="../styles/estilo.css">
+	<link rel="stylesheet" type="text/css" href="../styles/carrusel.css">
+	<style type="text/css">
+		.color{
+			padding: 15px;
+			border: 2px solid #FF8000;
+			border-radius: 100px;
+			background: linear-gradient(0deg, #F7BE81, #FFFFFF);
+		}
+		
+		.fsRequest{
+			border: 1px solid;
+			border-radius: 20px 0px 20px 0px;
+			padding: 8px;
+			color: #ff8000;
+		}
+
+		.fsRequest:hover{
+			color: black;
+		}
+		
+		.jobs-container{
+			margin-top:300px;
+		}
+	</style>
 </head>
-<br>
-<br>
 <body>
-	<div class="demo-cont">
+	<div class="demo-cont" ng-show="!vm.jobs.length">
 		<div class="fnc-slider example-slider">
 			<div class="fnc-slider__slides">
 				<div class="fnc-slide m--blend-green m--active-slide">
@@ -135,8 +158,114 @@
 			<br>
 		</div>
 	</div>
-</div>
-
-<script src="../scripts/index.js"></script>
+	<div ng-if="vm.jobs.length > 0">
+		<h2>IJob - Buscando Talentos</h2>
+		<br>
+		<div class="content-all">
+			<div class="content-carrousel">
+				<figure><img src="../img/img1.jpg"></figure>
+				<figure><img src="../img/img2.jpg"></figure>
+				<figure><img src="../img/img3.jpg"></figure>
+				<figure><img src="../img/img4.jpg"></figure>
+				<figure><img src="../img/img5.jpg"></figure>
+				<figure><img src="../img/img6.jpg"></figure>
+				<figure><img src="../img/img7.jpg"></figure>
+				<figure><img src="../img/img8.jpg"></figure>
+				<figure><img src="../img/img9.jpg"></figure>
+				<figure><img src="../img/img10.jpg"></figure>
+			</div>
+		</div>
+	</div>
+	<div class="jobs-container">
+		<div class="row text-center">
+			<span class="text-danger" ng-if="vm.searchResult">{{vm.searchResult}}</span>
+			<p class="p1"><i><span ng-if="vm.jobs.length > 0">Usuarios Top{{vm.jobs.length}}</span></i></p>
+		</div>
+		<div class="job-item" ng-repeat="job in vm.jobs">
+			<div class="well">
+				<div class="row">
+					<div class="col-lg-4">
+						<img src="{{job.srcImage}}" class="img-thumbnail" width="240" />
+					</div>
+					<div class="col-lg-6">
+						<div class="row">
+							<div class="col-lg-4">
+								<strong>Nombres</strong>
+							</div>
+							<div class="col-lg-8">
+								{{job.nombre}}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-4">
+								<strong>Apellidos</strong>
+							</div>
+							<div class="col-lg-8">
+								{{job.apellidos}}
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-lg-4">
+								<strong>Ubicación</strong>
+							</div>
+							<div class="col-lg-8">
+								{{job._ubicacion.municipio}},{{job._ubicacion.pais}}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-4">
+								<strong>Calificaciones</strong>
+							</div>
+							<div class="col-lg-8">
+								<span ng-if="job.calificaciones">{{job.calificaciones}}</span>
+								<span ng-if="!job.calificaciones">0</span>
+							</div>
+						</div>
+						<hr>
+						<div ng-repeat="ocup in job.ocupaciones">
+							<div class="row">
+								<div class="col-lg-4">
+									<strong>Ocupación</strong>
+								</div>
+								<div class="col-lg-8">
+									{{ocup._ocupacion.nombre}}
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-4">
+									<strong>Tipo</strong>
+								</div>
+								<div class="col-lg-8">
+									<span ng-if="ocup.tipo === 1">Actividad Principal</span>
+									<span ng-if="ocup.tipo === 2">Actividad Secundaria</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-4">
+									<strong>Experiencia</strong>
+								</div>
+								<div class="col-lg-8">
+									{{ocup.experiencia}}
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-lg-4">
+								<strong></strong>
+							</div>
+							<div class="col-lg-8">
+								<a class="fsRequest" ng-disabled="job.isDoingRequest"  ng-click="vm.doRequest(job)" >{{job.requestText}}</a>
+							</div>
+						</div>
+						<br>
+					</div>
+				</div>
+			</div>
+			<hr>
+		</div>
+	</div>
+	<script src="../scripts/index.js"></script>
 </body>
 </html>

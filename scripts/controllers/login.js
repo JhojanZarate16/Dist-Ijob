@@ -42,11 +42,10 @@ angular.module('ijobApp')
         lastName: response.data.apellidos,
         id: response.data['_id'],
         token: response.data.token
-      }
+      };
       console.log('rootScope', $rootScope);
 
-
-      $location.path('/profile');
+      $location.path('/home');
     };
 
     var handleError = function (response) {

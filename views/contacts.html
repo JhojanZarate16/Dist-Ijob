@@ -1,7 +1,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Busqueda</title>
+	<title>Contactos</title>
 	<link rel="shortcut icon" href="../images/favicon.ico"/>
 	<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -62,7 +62,7 @@
 		              			<a class="contac" role="button" ng-if="enviada._usuarioRecibe" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 		                		{{enviada._usuarioRecibe.nombre}} {{enviada._usuarioRecibe.apellidos}}
 		              			</a>
-		              			<span class="p3" ng-if="!enviada._usuarioRecibe" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+		              			<span class="panel-title" ng-if="!enviada._usuarioRecibe" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 				                	Nombre De Usuario Desconocido
 		              			</span>              
 		              			<i class="pull-right">Enviado El: {{enviada.fecha}}</i>
@@ -101,26 +101,7 @@
 			        </div>
 			    </div>
 		    </div>
-		    <br>
-			<!--<div role="tabpanel" class="tab-pane" id="messages">
-			    <form class="form-horizontal" ng-submit="vm.doRequest()">
-			        <p class="p1">Nueva Solicitud</p>
-			        <br>
-			        <div class="form-group">
-			          	<label class="p">Usuario Solicitante:</label>
-			          	<input class="c" type="text" placeholder="usuario solicita" ng-disabled="vm.idUser" ng-model="vm.idUser">
-			        </div>
-			        <div class="form-group">
-			          	<label class="p">Usuario Destinatario:</label>
-			          	<input class="c1" type="text" placeholder="       Usuario Solicitante" ng-model="vm.idUserTarget">
-			        </div>
-			        <div id="b" class="form-group">
-				          <input type="submit" value="Aceptar" class="btn btn-info">
-			        </div>
-			    </form>
-			     <div>{{vm.requestResult}}</div>
-			</div>
-			<div role="tabpanel" class="tab-pane" id="settings">
+		    <div role="tabpanel" class="tab-pane" id="settings">
 				<br>
 				<a class="p3">Recibidas</a>
 			    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -128,26 +109,29 @@
 			       		<div class="panel-heading" role="tab" id="headingOne">
 			       	    	<h4 class="panel-title">
 			           			<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-			               		{{enviada._usuarioRecibe.nombre}} {{enviada._usuarioRecibe.apellidos}}
+			               		{{enviada._usuarioSolicita.nombre}} {{enviada._usuarioSolicita.apellidos}}
 			           			</a>
-			           			<i class="pull-right">Enviado En: {{enviada._usuarioRecibe.creado}}</i>
+			           			<i class="pull-right">Enviado En: {{enviada._usuarioSolicita.creado}}</i>
 			           		</h4>
 			       		</div>
 			       		<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 				            <div class="panel-body">
 					            <div class="col-lg-6">
-				                	<span>{{enviada._usuarioRecibe.nombre}} {{enviada._usuarioRecibe.apellidos}}</span>
+				                	<span>{{enviada._usuarioSolicita.nombre}} {{enviada._usuarioSolicita.apellidos}}</span>
 				                	<br>
-				                	<span>{{enviada._usuarioRecibe.correo}}</span>
+				                	<span>{{enviada._usuarioSolicita.correo}}</span>
 				                	<br>
-				                	<p>{{enviada._usuarioRecibe.descripcion}}</p>
+				                	<p>{{enviada._usuarioSolicita.descripcion}}</p>
 				              	</div>
+								<div class="col-lg-12">
+									<button class="btn" ng-click="vm.accept(enviada)">Aceptar</button>
+								</div>
 				            </div>
 			       		</div>
 			       	</div>
 			    </div>
 			    <div class="alert alert-{{vm.putResult.status}}" role="alert">{{vm.putResult.message}}</div>
-			</div>-->
+			</div>
 		</div>
 	</div>
 	<script>

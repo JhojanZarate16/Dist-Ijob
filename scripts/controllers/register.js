@@ -13,12 +13,13 @@ angular.module('ijobApp')
       vm.msg.className = '';
       vm.dataLoading = true;
       vm.user.clave = CryptoService.SHA1.encode(vm.user.clave).toString();
+      vm.user.metodoRegistro = 4;
       UserService.Create(vm.user).then( function (response) {handleSuccess(response);}, function(response) { handleError(response); });
     };
 
     var handleSuccess = function (response)  {      
       console.log('ok =>', response);
-      if (response && response.data.estado === "2") {               
+      if (response && response.data.token) {               
         vm.msg.className = 'text-success';
         vm.msg.content = response.data.mensaje;
         vm.token = response.data.token;

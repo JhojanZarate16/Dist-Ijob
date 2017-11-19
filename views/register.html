@@ -1,4 +1,4 @@
-  <html lang="es">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<title>Perfil</title>
@@ -51,16 +51,21 @@
 					</select>
 					<span ng-show="form.genero.$dirty && form.genero.$error.required" class="help-block">Genero es requerido</span>
 				</div>
-				<div class="form-group" ng-class="{ 'has-error': form.rol.$dirty && form.rol.$error.required }">
+				<div id="pr" class="form-group" ng-class="{ 'has-error': form.rol.$dirty && form.rol.$error.required }">
 					<label for="correo" id="clas">Rol</label>
-					<select name="rol" id="rol" class="form-control" ng-model="vm.user.rol">
+					<img class="img1" src="../images/rol.9b6c9d76.png">
+					<div ng-repeat="option in vm.Roles">
+						<label for="correo" id="clas2">{{option.nombre}}</label>
+            			<input id="radio" type="radio" name="role"  value="{{option.codigo}}">
+ 				    </div>
+					<!--<select name="rol" id="rol" class="form-control" ng-model="vm.user.rol">
 						<option ng-repeat="option in vm.Roles" value="{{option.codigo}}">{{option.nombre}}</option>
-					</select>
+					</select>-->
 					<span ng-show="form.rol.$dirty && form.rol.$error.required" class="help-block">Rol es Requerido</span>
 				</div>
 				<div class="form-group" ng-class="{ 'has-error': form.metodoRegistro.$dirty && form.metodoRegistro.$error.required }">
-					<label for="correo" id="clas">Metodo de Registro</label>
-					<select name="metodoRegistro" id="metodoRegistro" class="form-control" ng-model="vm.user.metodoRegistro">
+					<label for="correo" id="clas" ng-if="false">Metodo de Registro</label>
+					<select name="metodoRegistro" id="metodoRegistro" ng-if="false" class="form-control" ng-model="vm.user.metodoRegistro">
 						<option ng-repeat="option in vm.MetodoRegistro" value="{{option.codigo}}">{{option.nombre}}</option>
 					</select>
 					<span ng-show="form.metodoRegistro.$dirty && form.metodoRegistro.$error.required" class="help-block">Metodo De Registro Es Requerido.</span>
