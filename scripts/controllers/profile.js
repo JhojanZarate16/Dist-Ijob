@@ -52,7 +52,7 @@ angular.module('ijobApp').controller('ProfileCtrl', function ($location, Profile
         vm.escolaridad = response.data;
       },
       function (response) {
-        console.log('error escolaridad =>', response)
+        console.log('Error Escolaridad =>', response)
       });
   };
 
@@ -70,7 +70,7 @@ angular.module('ijobApp').controller('ProfileCtrl', function ($location, Profile
         vm.ocupaciones = response.data;
       },
       function (response) {
-        console.log('error escolaridad =>', response)
+        console.log('Error Escolaridad =>', response)
       });
   };
 
@@ -79,7 +79,7 @@ angular.module('ijobApp').controller('ProfileCtrl', function ($location, Profile
     var userLocation = $filter('filter')(vm.ubicaciones, {
       municipio: vm.user.ciudad
     })[0];
-    console.log('user a actualizar =>', vm.user);
+    console.log('User a Actualizar =>', vm.user);
     var payload = {
       nombre: vm.user.nombre,
       apellidos: vm.user.apellidos,
@@ -95,7 +95,7 @@ angular.module('ijobApp').controller('ProfileCtrl', function ($location, Profile
         vm.msg.error = null;
       })
       .then(function (response) {
-        if (response) vm.msg.error = 'Error actualizando la información básica';
+        if (response) vm.msg.error = 'Error Actualizando La Información Básica';
       });
 
     //2. description
@@ -128,12 +128,12 @@ angular.module('ijobApp').controller('ProfileCtrl', function ($location, Profile
       };
       UserService.UpdateOcupacion(id, payload)
         .then(function (response) {
-          console.log('sucess update ocupación =>', response)
+          console.log('Sucess Update Ocupación =>', response)
 
         })
         .then(function (response) {
-          console.log('error update descripcion =>', response)
-          if (response) vm.msg.error = 'Error actualizando la ocupación del usuario';
+          console.log('Error Update Descripcion =>', response)
+          if (response) vm.msg.error = 'Error Actualizando La Ocupación Del Usuario';
         });
 
     });
@@ -143,21 +143,22 @@ angular.module('ijobApp').controller('ProfileCtrl', function ($location, Profile
     if (vm.user.image) {
       UserService.UpdateImage(id, vm.user.image)
         .then(function (response) {
-          console.log('sucess update image =>', response)
+          console.log('Sucess Update Image =>', response)
         })
         .then(function (response) {
           console.log('error update image  =>', response)
-          if (response) vm.msg.error = 'Error actualizando la imagen del usuario';
+          if (response) vm.msg.error = 'Error Actualizando La Imagen Del Usuario';
         });
     }
 
     if (!vm.msg.error)
-      vm.msg.success = 'Usuario actualizado con éxito';
+      vm.msg.success = 'Usuario Actualizado Con Exito';
   };
 
   var handleGetSuccess = function (response) {
     console.log('user =>', response.data);
-    vm.dataLoading = false;
+    if(response.data._image) vm.defaultImage = UserService.GetUserImage(response.data._image);
+	vm.dataLoading = false;
     vm.user = response.data;
     vm.user.nacimiento = moment(response.data.nacimiento).toDate();
     vm.user.genero = response.data.genero.toString();

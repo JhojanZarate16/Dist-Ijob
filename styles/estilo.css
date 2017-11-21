@@ -320,6 +320,44 @@ label{
 	border-radius:20px 0px 20px 0px;
 }
 
+.btn5{
+	margin-left:-500px;
+	margin-top:80px;
+	border: 1px solid #FF8000;
+	background: linear-gradient(180deg, #FF8000, #FFFFFF );
+	color: #000000;
+	padding:5px;
+	border-radius:20px 0px 20px 0px;
+}
+
+.btn5:hover{
+	border: 1px solid #FFFFFF;
+	background: linear-gradient(0deg, #FFFFFF, #FF8000 );
+	color: #FFFFFF;
+	padding:5px;
+	border-radius:20px 0px 20px 0px;
+}
+
+.btn6{
+	margin-left:10px;
+	margin-top:80px;
+	border: 1px solid #FF8000;
+	background: linear-gradient(180deg, #FF8000, #FFFFFF );
+	color: #000000;
+	padding:5px;
+	border-radius:20px 0px 20px 0px;
+}
+
+.btn6:hover{
+	border: 1px solid #FFFFFF;
+	background: linear-gradient(0deg, #FFFFFF, #FF8000 );
+	color: #FFFFFF;
+	padding:5px;
+	border-radius:20px 0px 20px 0px;
+}
+
+
+
 @media (min-width: 200px) and (max-width: 350px)
 {
 	.est{
@@ -351,6 +389,11 @@ label{
 		margin-top:-30px;
 		margin-right:80px;
 		margin-bottom:-10px;
+	}
+	
+	.btn5{
+		margin-left:-200px;
+		margin-top:120px;
 	}
 }
 
