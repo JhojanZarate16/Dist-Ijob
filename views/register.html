@@ -52,9 +52,9 @@
 					<span ng-show="form.genero.$dirty && form.genero.$error.required" class="help-block">Genero es requerido</span>
 				</div>
 				<div id="pr" class="form-group" ng-class="{ 'has-error': form.rol.$dirty && form.rol.$error.required }">
-					<label for="correo" id="clas">Rol</label>
+					<label for="correo" class="r" id="clas">Rol</label>
 					<img class="img1" src="../images/rol.9b6c9d76.png">
-					<div ng-repeat="option in vm.Roles">
+					<div class="r" ng-repeat="option in vm.Roles">
 						<label for="correo" id="clas2">{{option.nombre}}</label>
             			<input id="radio" type="radio" name="role"  value="{{option.codigo}}">
  				    </div>
