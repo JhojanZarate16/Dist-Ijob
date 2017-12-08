@@ -16,31 +16,21 @@
 	<br>
 	<br>
 	<form ng-submit="vm.updateUser()" role="form">
-		<ul class="nav nav-tabs" role="tablist" id="myTabs">
-			<li role="presentation" class="active">
-				<a href="#home" aria-controls="home" role="tab" data-toggle="tab">Datos Personales</a>
-			</li>
-			<li role="presentation">
-				<a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Ubicación</a>
-			</li>
-			<li role="presentation">
-				<a href="#ocupacion" aria-controls="settings" role="tab" data-toggle="tab">Ocupaciones y Disponibilidad</a>
-			</li>
-		</ul>
-		<div class="tab-content">
-			<div role="tabpanel" class="tab-pane active" id="home">
+		<div class="userInfo">
+			<div class="col-lg-3">
 				<img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
 				<label class="userImage">
 					<img class="estado" ng-if="!vm.dataLoading" ngf-thumbnail="vm.defaultImage">  
 					<input class="est" type="file"  ngf-select ngf-pattern="'image/*'" ng-model="vm.user.image" ngf-accept="'image/*'" ngf-max-size="20MB" hidden ngf-min-height="100" ngf-resize="{width: 100, height: 100}">
 				</label>
-				<br>
 				<span id="p">Estado: <strong>{{vm.user.Status.nombre}}</strong></span>
 				<p id="pq" class="text-success" ng-if="vm.msg.success">{{vm.msg.success}}</p>
 				<p id="pq" class="text-danger" ng-if="vm.msg.error">{{vm.msg.error}}</p>
+			</div>
+			<div class="col-lg-9">
 				<fieldset>
 					<p class="p2">Datos Personales</p>
-					<span ng-show="vm.dataLoading">Cargando Información...</span>
+					<span class="car" ng-show="vm.dataLoading">Cargando Información...</span>
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-4 control-label">Correo Electrónico</label>
 						<div class="col-sm-5">
@@ -90,8 +80,6 @@
 						</div>
 					</div>
 				</fieldset>
-			</div>
-			<div class="tab-pane" id="settings">
 				<fieldset>
 					<p class="p2">Ubicación</p>
 					<div class="form-group">
@@ -127,8 +115,6 @@
 						</div>
 					</div>
 				</fieldset>
-			</div>
-			<div role="tabpanel" class="tab-pane active" id="ocupacion">
 				<fieldset ng-if="vm.user.canAddOcupacion">
 					<p class="p2">Ocupaciones</p>
 					<div class="col-sm-12" ng-if="vm.user.ocupaciones.length < 3">
@@ -199,24 +185,11 @@
 					</div>    
 				</fieldset>
 			</div>
+			<div class="col-lg-offset-5">
+				<input type="submit" value="Guardar" class="btn btn-success" ng-disabled="vm.dataLoading">
+				<a href="#/" class="btn btn-default" ng-disabled="vm.dataLoading">Cancelar</a>
+			</div>
 		</div>
-		<div class="col-lg-offset-5">
-			<input type="submit" value="Guardar" class="btn btn-success" ng-disabled="vm.dataLoading">
-			<a href="#/" class="btn btn-default" ng-disabled="vm.dataLoading">Cancelar</a>
-		</div>
-	</div>
-</form>
-<script>
-  $(document).ready(function () {
-    $('#accordion').collapse();
-    $('#accordion a').click(function (e) {
-      e.preventDefault()
-    });
-    $('#myTabs a').click(function (e) {
-      e.preventDefault()
-      $(this).tab('show')
-    })
-  });
-</script>
+	</form>
 </body>
 </html>
