@@ -8,10 +8,17 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="../styles/estilo.css">
+	<style type="text/css">
+		.datos{
+			margin-left: 330px;
+			margin-top: -250px;
+		}
+
+	</style>
 </head>
 <body class="bod">
 	<a href= "../index.html">
-		<img id="img" class="img" src="../images/banner_int1.f9c9cedb.png">
+		<img id="img" class="img" src="../images/banner_int1.png">
 	</a>
 	<br>
 	<br>
@@ -38,7 +45,7 @@
 				<span id="p">Estado: <strong>{{vm.user.Status.nombre}}</strong></span>
 				<p id="pq" class="text-success" ng-if="vm.msg.success">{{vm.msg.success}}</p>
 				<p id="pq" class="text-danger" ng-if="vm.msg.error">{{vm.msg.error}}</p>
-				<fieldset>
+				<fieldset class="datos">
 					<p class="p2">Datos Personales</p>
 					<span ng-show="vm.dataLoading">Cargando Información...</span>
 					<div class="form-group">
